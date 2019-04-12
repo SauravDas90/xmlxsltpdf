@@ -1,0 +1,58 @@
+-<workcard xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" key="163440" xsi:noNamespaceSchemaLocation="../catalog/workcardSchema.xsd">
+-<prelreq>
+-<carrier-code>
+ NWA
+ </carrier-code>
+-<mfg>
+ AIRBUS
+ </mfg>
+-<model>
+ A350
+ </model>
+-<dash>
+ ALL
+ </dash>
+-<wctype>
+ W
+ </wctype>
+-<wc-num>
+ 0597-2600
+ </wc-num>
+-<wc-title>
+ AGING AIRCRAFT SAFETY ACT STRUCTURAL INSPECTION
+ </wc-title>
+-<source-docs>
+-<tasks>
+-<task-key>
+ 80751
+ </task-key>
+ </tasks>
+ </source-docs>
+-<major-zone>
+ 000
+ </major-zone>
+-<crew-type>
+ 12
+ </crew-type>
+-<forecasts>
+-<forecast>
+-<fc-num>
+ 35-0590-8-0003
+ </fc-num>
+-<nha-pos>
+ X
+ </nha-pos>
+ </forecast>
+-<forecast>
+-<fc-num>
+ 35-0590-8-0004
+ </fc-num>
+-<nha-pos>
+ X
+ </nha-pos>
+ </forecast>
+ </forecasts>
+ </prelreq>
+-<xi:include encoding="UTF-8" href="W37204_en-US.xml" parse="xml" xpointer="W37204">
+ </xi:include>
+ </workcard>
