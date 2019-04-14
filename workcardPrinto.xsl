@@ -245,6 +245,11 @@
 							</fo:region-body>
 							<fo:region-before region-name="signcoverPage-region-before" extent="45mm"/>
 							<fo:region-after region-name="signcoverPage-region-after" extent="50mm" display-align="after"/>
+							<!-- AD RELATED -->
+							<fo:region-start extent="1in"  region-name="signcoverPage-region-start" reference-orientation="90"/>
+
+							<fo:region-end extent="1in"  region-name="signcoverPage-region-end" reference-orientation="270"/>
+							
 						</fo:simple-page-master>
 						<fo:simple-page-master master-name="RepcoverPage" page-height="11in" page-width="8.5in" margin-top="5mm" margin-bottom="5mm" margin-left="5mm" margin-right="5mm">
 							<fo:region-body region-name="RepcoverPage-region-body" margin-left="8mm" margin-right="8mm" margin-top="44mm" margin-bottom="25mm">
@@ -269,6 +274,11 @@
 							</fo:region-body>
 							<fo:region-before region-name="RepcoverPage-region-before" precedence="false" extent="44mm"/>
 							<fo:region-after region-name="RepcoverPage-region-after" precedence="false" extent="50mm" display-align="after"/>
+							<!-- AD RELATED -->
+							<fo:region-start extent="1in"  region-name="RepcoverPage-region-start" reference-orientation="90" />
+
+							<fo:region-end extent="1in"  region-name="RepcoverPage-region-end" reference-orientation="270" />
+							
 						</fo:simple-page-master>
 					</xsl:when>
 				</xsl:choose>
@@ -298,6 +308,11 @@
 					</fo:region-body>
 					<fo:region-before region-name="coverPage-region-before" precedence="false" extent="44mm"/>
 					<fo:region-after region-name="coverPage-region-after" precedence="false" extent="50mm" display-align="after"/>
+					<!-- AD RELATED -->
+					<fo:region-start extent="1in"  region-name="coverPage-region-start" reference-orientation="90" />
+
+					<fo:region-end extent="1in"  region-name="coverPage-region-end" reference-orientation="270"/>
+					
 				</fo:simple-page-master>
 				<!-- Layout for the rest of pages without graphics -->
 				<fo:simple-page-master master-name="textPages" page-height="11in" page-width="8.5in" margin-top="5mm" margin-bottom="5mm" margin-left="5mm" margin-right="5mm">
@@ -308,12 +323,18 @@
 					<fo:region-before region-name="textPages-region-before" extent="48mm"/>
 <!-- header missing issue-->
 					<fo:region-after region-name="textPages-region-after" extent="50mm" display-align="after"/>
+					<!-- AD RELATED -->
+					<fo:region-start extent="1in"  region-name="textPages-region-start" reference-orientation="90" />
+					<fo:region-end extent="1in"  region-name="textPages-region-end" reference-orientation="270"/>
 				</fo:simple-page-master>
 				<!-- Layout for the rest of pages with graphics -->
 				<fo:simple-page-master master-name="textPagesGraphics" page-height="11in" page-width="8.5in" margin-top="5mm" margin-bottom="5mm" margin-left="5mm" margin-right="5mm">
 					<fo:region-body region-name="textPagesGraphics-region-body" margin-top="34mm" margin-bottom="10mm" margin-left="8mm" margin-right="8mm"/>
 					<fo:region-before region-name="textPagesGraphics-region-before" extent="44mm"/>
 					<fo:region-after region-name="textPagesGraphics-region-after" extent="10mm" display-align="after" precedence="true"/>
+					<!-- AD RELATED -->
+					<fo:region-start extent="1in"  region-name="textPagesGraphics-region-start" reference-orientation="90" />
+					<fo:region-end extent="1in"  region-name="textPagesGraphics-region-end" reference-orientation="270"/>
 				</fo:simple-page-master>
 				<!--Page sequence Master for routine cards with the new format-->
 				<xsl:choose>
@@ -355,6 +376,27 @@
 								<xsl:with-param name="partialSignoff">No</xsl:with-param>
 							</xsl:call-template>
 						</fo:static-content>
+						<!-- AD RELATED -->
+
+						<fo:static-content flow-name="RepcoverPage-region-start"  >
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" padding-top="35px" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+						<fo:static-content flow-name="RepcoverPage-region-end" reference-orientation="270" padding-top="35px">
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+
+
+						<!-- AD RELATED ends -->						
+						
 						<fo:flow flow-name="RepcoverPage-region-body">
 							<xsl:choose>
 								<xsl:when test="/workcard/prelreq/carrier-code ='VIR'">
@@ -426,6 +468,28 @@ If you find an error with these work instructions, please contact the Work Instr
 								<xsl:with-param name="partialSignoff">Yes</xsl:with-param>
 							</xsl:call-template>
 						</fo:static-content>
+						
+						<!-- AD RELATED -->
+
+						<fo:static-content flow-name="signcoverPage-region-start">
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" padding-top="35px" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+						<fo:static-content flow-name="signcoverPage-region-end" padding-top="35px">
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+
+
+						<!-- AD RELATED ends -->
+						
 						<fo:flow flow-name="signcoverPage-region-body">
 							<fo:block>
 								<xsl:apply-templates select="/workcard/mainfunc/step1" mode="signoff"/>
@@ -466,6 +530,29 @@ If you find an error with these work instructions, please contact the Work Instr
 								<xsl:with-param name="partialSignoff">No</xsl:with-param>
 							</xsl:call-template>
 						</fo:static-content>
+
+						<!-- AD RELATED -->
+
+						<fo:static-content flow-name="coverPage-region-start">
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" padding-top="35px" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+						<fo:static-content flow-name="coverPage-region-end" padding-top="35px">
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+
+
+						<!-- AD RELATED ends -->
+					
+
 						<fo:flow flow-name="coverPage-region-body">
 							<xsl:choose>
 								<xsl:when test="/workcard/prelreq/carrier-code ='VIR'">
@@ -504,6 +591,27 @@ If you find an error with these work instructions, please contact the Work Instr
 								<xsl:with-param name="partialSignoff">Yes</xsl:with-param>
 							</xsl:call-template>
 						</fo:static-content>
+						
+						<!-- AD RELATED -->
+
+						<fo:static-content flow-name="textPages-region-start"  >
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" padding-top="35px" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+						<fo:static-content flow-name="textPages-region-end"  padding-top="35px">
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+
+
+						<!-- AD RELATED ends -->
 						<fo:flow flow-name="textPages-region-body">
 							<fo:block>
 								<xsl:apply-templates select="mainfunc"/>
@@ -542,6 +650,28 @@ Linked Data
 									<xsl:with-param name="partialSignoff">No</xsl:with-param>
 								</xsl:call-template>
 							</fo:static-content>
+							
+													<!-- AD RELATED -->
+
+						<fo:static-content flow-name="textPages-region-start"  >
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" padding-top="35px" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+						<fo:static-content flow-name="textPages-region-end"  padding-top="35px">
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+
+
+						<!-- AD RELATED ends -->
+						
 							<fo:flow flow-name="textPages-region-body">
 								<fo:block>
 									<xsl:apply-templates select="mainfunc" mode="signoff"/>
@@ -568,6 +698,26 @@ Linked Data
 								<xsl:with-param name="graphicPage">Yes</xsl:with-param>
 							</xsl:call-template>
 						</fo:static-content>
+						
+						
+						<!-- AD RELATED-->
+						<fo:static-content flow-name="textPagesGraphics-region-start"  >
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" padding-top="35px" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+						<fo:static-content flow-name="textPagesGraphics-region-end"  padding-top="35px">
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+
+						<!-- AD RELATED ends -->
 						<fo:flow flow-name="textPagesGraphics-region-body">
 							<fo:block>
 								<xsl:if test="/workcard/mainfunc[child::graphic[not(parent::figure)] or child::figure]">
@@ -596,6 +746,27 @@ Linked Data
 									<xsl:with-param name="graphicPage">Yes</xsl:with-param>
 								</xsl:call-template>
 							</fo:static-content>
+							
+							
+						<!-- AD RELATED-->
+						<fo:static-content flow-name="textPagesGraphics-region-start"  >
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" padding-top="35px" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+						<fo:static-content flow-name="textPagesGraphics-region-end"  padding-top="35px">
+							<fo:block-container space-before="10pt">
+								<fo:block font-weight="bold" text-align="center" font-size="35pt" border="10pt">
+									<fo:inline color="#FF0000">AD RELATED</fo:inline>
+								</fo:block>
+							</fo:block-container>
+						</fo:static-content>
+
+						<!-- AD RELATED ends -->
+							
 							<fo:flow flow-name="textPagesGraphics-region-body">
 								<fo:block>
 									<xsl:if test="/workcard/mainfunc[child::graphic[not(parent::figure)] or child::figure]">
